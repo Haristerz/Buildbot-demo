@@ -8,15 +8,27 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 stages:
-- stage: A
+- stage: Checkout
   jobs:
-  - job: A1
+  - job: Checkout
     steps:
-    - bash: echo "A"
-
-- stage: B
+    - bash: echo "Checkout Stage"
+- stage: Build
+  dependsOn:         # this stage runs after Checkout
+  - Checkout
   jobs:
-  - job: B1
+  - job: Build
+    steps:
+    - bash: echo "Build Stage"
+- stage: Test
+  jobs:
+  - job: Test
+    steps:
+    - bash: echo "Test Stage"
+
+- stage: Publish 
+  jobs:
+  - job: Publish stage
     steps:
     - task: ArchiveFiles@2
       inputs:
