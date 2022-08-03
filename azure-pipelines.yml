@@ -18,10 +18,10 @@ stages:
   jobs:
   - job: B1
     steps:
-    - bash: echo "B"
-steps:
-- task: ArchiveFiles@2
-  inputs:
-    rootFolderOrFile: '$(build.sourcesDirectory)'
-    includeRootFolder: false
-- task: PublishBuildArtifacts@1
+  - bash: echo "A"
+    steps:
+    - task: ArchiveFiles@2
+      inputs:
+       rootFolderOrFile: '$(build.sourcesDirectory)'
+       includeRootFolder: false
+    - task: PublishBuildArtifacts@1
