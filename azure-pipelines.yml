@@ -14,8 +14,6 @@ stages:
     steps:
     - bash: echo "Checkout Stage"
 - stage: Build
-  dependsOn:         # this stage runs after Checkout
-  - Checkout
   jobs:
   - job: Build
     steps:
