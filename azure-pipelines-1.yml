@@ -31,7 +31,6 @@ stages:
 - stage: Publish 
   dependsOn:
   - Test
-  condition: suceeded()
   jobs:
   - job: Publish
     steps:
